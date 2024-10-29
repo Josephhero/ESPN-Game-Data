@@ -35,5 +35,5 @@ espn_data_raw <- espn_data_raw |>
   mutate(redzone_att = redzone_att1) |> 
   select(-redzone_att1)
 
-write_csv(espn_data_raw, paste0("Data/YEAR, "_espn_game_data.csv"))
+write_csv(espn_data_raw, paste0("Data/", YEAR, "_espn_game_data.csv"))
 
