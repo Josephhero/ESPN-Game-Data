@@ -29,9 +29,11 @@ jobs:
             any::nflreadr
             any::remotes
             
-     # - name: Install GitHub package {espnscrapeR}
-     #   run: |
-     #     R -e 'remotes::install_github("jthomasmock/espnscrapeR")'
+      - name: Install GitHub package {espnscrapeR}
+        env:
+          espn_pat: ${{ secrets.espn_pat }}
+        run: |
+          R -e 'remotes::install_github("jthomasmock/espnscrapeR")'
           
       - name: Check out repository
         uses: actions/checkout@v3
