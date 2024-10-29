@@ -16,6 +16,10 @@ on:
 jobs:
   update-data:
     runs-on: ubuntu-latest
+
+    env: # API Keys must be before steps, and set as env variables
+      ESPNSCRAPER_PAT: ${{ secrets.ESPNSCRAPER_PAT }}
+      
     steps:
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
@@ -30,8 +34,6 @@ jobs:
             any::remotes
             
       - name: Install GitHub package {espnscrapeR}
-        env:
-          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
         run: |
           R -e 'remotes::install_github("jthomasmock/espnscrapeR")'
           
