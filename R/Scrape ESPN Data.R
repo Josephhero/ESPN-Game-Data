@@ -27,7 +27,7 @@ for(i in seq_along(espn_ids)){
   espn_data_raw <- bind_rows(espn_data_raw, espn_game_data)
 }
 
-espn_data_raw <- espn_data_raw |> 
+espn_data <- espn_data_raw |> 
   mutate(team_abbr = nflreadr::clean_team_abbrs(team_abbr)) |> 
   # redzone_att and redzone_conv values are flipped when scraped. 
   mutate(redzone_att1 = if_else(redzone_att >= redzone_conv, redzone_att, redzone_conv)) |> 
@@ -35,5 +35,4 @@ espn_data_raw <- espn_data_raw |>
   mutate(redzone_att = redzone_att1) |> 
   select(-redzone_att1)
 
-write_csv(espn_data_raw, paste0("Data/", YEAR, "_espn_game_data.csv"))
-
+write_csv(espn_data, paste0("Data/", YEAR, "_espn_game_data.csv"))
