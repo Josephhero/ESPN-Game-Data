@@ -26,7 +26,6 @@ jobs:
           packages: |
             any::dplyr
             any::readr
-            any::espnscrapeR
             any::nflreadr
             
       - name: Install GitHub package {espnscrapeR}
