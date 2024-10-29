@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env: # API Keys must be before steps, and set as env variables
-      ESPNSCRAPER_PAT: ${{ secrets.ESPNSCRAPER_PAT }}
+      GITHUB_PAT: ${{ secrets.ESPNSCRAPER_PAT }}
       
     steps:
       - name: Set up R
