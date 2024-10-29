@@ -28,12 +28,17 @@ jobs:
             any::readr
             any::espnscrapeR
             any::nflreadr
-
+            
+      - name: Install GitHub package {espnscrapeR}
+        run: |
+          R -e 'install.packages("remotes")'
+          R -e 'remotes::install_github("jthomasmock/espnscrapeR")'
+          
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Scrape Data
-        run: Rscript -e 'source("R/Scrape ESPN Data.R")'
+     # - name: Scrape Data
+     #   run: Rscript -e 'source("R/Scrape ESPN Data.R")'
 
       - name: Commit results
         run: |
