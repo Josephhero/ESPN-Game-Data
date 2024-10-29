@@ -31,7 +31,7 @@ jobs:
             
       - name: Install GitHub package {espnscrapeR}
         env:
-          espn_pat: ${{ secrets.espn_pat }}
+          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
         run: |
           R -e 'remotes::install_github("jthomasmock/espnscrapeR")'
           
