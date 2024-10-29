@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env: # API Keys must be before steps, and set as env variables
-      GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+      ESPN_PAT: ${{ secrets.ESPN_PAT }}
       
     steps:
       - name: Set up R
